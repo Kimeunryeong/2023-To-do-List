@@ -13,11 +13,14 @@ function saveToDos() {
 
 function deleteToDo(e) {    //e라고 써도 이벤트라 통상적으로 블라블라
     const li = e.target.parentElement
-    li.remove()
+    li.remove();
+    toDos = toDos.filter((item)=>item.id !== parseInt(li.id))
+    saveToDos()
 }
 
 function paintToDo(newTodo) {
     const li = document.createElement("li");
+    li.setAttribute("id", newTodo.id)
     const span = document.createElement("span")
     const button = document.createElement("button")
 
@@ -25,7 +28,7 @@ function paintToDo(newTodo) {
     button.addEventListener("click", deleteToDo) //버튼 클릭시 나타나는 이벤트
     li.appendChild(span)
     li.appendChild(button)
-    span.innerText = newTodo;
+    span.innerText = newTodo.text;
     toDoList.appendChild(li)
     // const checkBox = document.createElement("input")
     // checkBox.type = "checkbox";)
@@ -33,10 +36,13 @@ function paintToDo(newTodo) {
 
 function handleToDoSubmit(event) {
     event.preventDefault();
-    const newTodo = toDoInput.value // console.log(toDoInput.value)
+    const newTodoObj = {
+        text: toDoInput.value,
+        id: Date.now()
+    } // console.log(toDoInput.value)
     toDoInput.value = ""
-    paintToDo(newTodo) // 화면에 그려주는 함수
-    toDos.push(newTodo) // newTodo에 썼던 값들이 push를 사용함으로서 toDos에 담아짐.
+    paintToDo(newTodoObj) // 화면에 그려주는 함수
+    toDos.push(newTodoObj) // newTodo에 썼던 값들이 push를 사용함으로서 toDos에 담아짐.
     saveToDos(); //로컬 스토리지에 저장해주는 함수
     
 }
