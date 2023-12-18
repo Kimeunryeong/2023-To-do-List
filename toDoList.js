@@ -19,24 +19,33 @@ function deleteToDo(e) {    //e라고 써도 이벤트라 통상적으로 블라
 }
 
 function paintToDo(newTodo) {
+    // li생성
     const li = document.createElement("li");
     li.setAttribute("id", newTodo.id)
+
+    // 체크박스 생성
+    const checkbox = document.createElement("input")
+    checkbox.type="checkbox";
+    // 체크박스 상태 변경 이벤트
+    checkbox.addEventListener("change", handleCheckboxChange);
+    li.appendChild(checkbox);
+
     const span = document.createElement("span")
     const button = document.createElement("button")
 
     button.innerText = "🧨"
     button.addEventListener("click", deleteToDo) //버튼 클릭시 나타나는 이벤트
+
     li.appendChild(span)
     li.appendChild(button)
     span.innerText = newTodo.text;
     toDoList.appendChild(li)
-    // const checkBox = document.createElement("input")
-    // checkBox.type = "checkbox";)
 }
+
 
 function handleToDoSubmit(event) {
     event.preventDefault();
-    const newTodoObj = {
+    const newTodoObj={
         text: toDoInput.value,
         id: Date.now()
     } // console.log(toDoInput.value)
@@ -44,7 +53,6 @@ function handleToDoSubmit(event) {
     paintToDo(newTodoObj) // 화면에 그려주는 함수
     toDos.push(newTodoObj) // newTodo에 썼던 값들이 push를 사용함으로서 toDos에 담아짐.
     saveToDos(); //로컬 스토리지에 저장해주는 함수
-    
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit)

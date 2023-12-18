@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <link href="style.css" rel="stylesheet" >
+    <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-    <form id="todo-form">
-        <input type="text" placeholder="오늘의 할 일" />
-    </form>
-    
-    <!-- 투두 리스트 나열 -->
-    <!-- 자바스크립트에서 작성한 내용이 ul안에 li로 생성됨 -->
-    <ul id="todo-list"></ul>
-    
+    <h1>TO DO LIST</h1>
+    <div class="clock-container">
+        <div id="clock"></div>
+    </div>
+    <div class="content">
+        <form id="todo-form">
+            <input type="text" placeholder="오늘의 할 일" />
+        </form>
+
+        <!-- 투두 리스트 나열 -->
+        <!-- 자바스크립트에서 작성한 내용이 ul안에 li로 생성됨 -->
+        <ul id="todo-list"></ul>
+
+
+        <div class="rand-image-container">
+            <div id="rand-image"></div>
+            <div id="quotes"></div>
+        </div>
+        <div class="weather-container">
+            <div id="weather"></div>
+        </div>
+    </div>
+
+
     <script src="toDoList.js"></script>
+    <script src="clock.js"></script>
+    <script src="randimage.js"></script>
+    <script src="quotes.js"></script>
+    <script src="weather.js"></script>
 </body>
+
 </html>
