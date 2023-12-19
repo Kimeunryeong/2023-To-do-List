@@ -3,36 +3,76 @@ body {
     padding: 0;
     background-image: url('모눈종이.jpg');
     height: 100vh;
+    box-sizing: border-box;
 
 }
-h1 {text-align: center;
+
+/* TODOLIST 제목 */
+h1 {
+    text-align: center;
     font-size: 40px;
     font-weight: 700;
-    }
-/* --------------content내용 */
-.content {
-    width: 50vw;
-    margin: 0 auto;
-    padding: 40px;
-    background-color:aquamarine;   
 }
 
-/* 체크된 리스트 아이템의 텍스트에 줄 그어주기 */
-li {
-    text-align: center;
-    text-decoration: none;
-    list-style: none;
-}
-button {
-    margin: 5px;
-}
-input {
-    width: 20vw;
+#todo-form>input {
+    /* width: 50vw; */
+    width: 80%;
     margin: 0 auto;
     display: block;
-    padding: 10px;
+    padding: 15px;
 }
 
+/* todo-list(ul)내용 */
+#todo-list {
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    /* width: 40vw; */
+    width: 80%;
+}
+
+/* li  */
+#todo-list li {
+    /* width: 80%; */
+    width: 100%;
+    margin: 10px auto;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* li 친구들 */
+#todo-list li input[type="checkbox"] {
+    margin: 0 10px;
+    padding: 5px;
+    width: 20px;
+    cursor: pointer;
+}
+
+#todo-list li span {
+    font-size: 18px;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: left;
+    margin: 0px 40px 20px 10px;
+}
+
+#todo-list li button {
+    /* 버튼에 마우스를 올리면 커서 모양을 변경 */
+    cursor: pointer;
+    /* 촌스러운 것들 싸그리 */
+    background: none;
+    border: none;
+    right: 0;
+    position: absolute;
+}
+
+/* --------------content내용 */
+.content {
+    /* width: 50vw; */
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+}
 
 /* ---------------시계 */
 .clock-container {
@@ -42,22 +82,23 @@ input {
     justify-content: center;
     align-items: center;
 }
+
 #clock {
     font-size: 36px;
     font-weight: 500;
-    
 }
 
 /* -----------------이미지 */
 .rand-image-container {
     position: relative;
-    width:100%;
+    /* width:100%; */
+    width: 80%;
     height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: grey; */
 }
+
 .rand-image-container #rand-image {
     width: 100%;
     height: 100%;
@@ -66,6 +107,7 @@ input {
     justify-content: center;
     align-items: center;
 }
+
 .rand-image-container #rand-image::after {
     content: "";
     position: absolute;
@@ -74,7 +116,7 @@ input {
     top: 0;
     left: 50%;
     transform: translate(-50%);
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 .rand-image-container #rand-image img {
@@ -82,9 +124,10 @@ input {
     height: 100%;
     object-fit: cover;
 }
+
 #quotes {
     position: absolute;
-    top:50%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-weight: 800;
