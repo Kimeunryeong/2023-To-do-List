@@ -134,3 +134,8 @@ h1 {
     font-size: 20px;
     color: white;
 }
+
+/* ----------------12-20 드래그 */
+.dragging {
+    opacity: 0.1;
+}

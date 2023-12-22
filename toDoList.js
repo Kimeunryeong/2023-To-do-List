@@ -6,7 +6,7 @@ let toDos = [];  // 할 일 목록을 저장할 배열
 
 // 할 일 목록을 로컬 스토리지에 저장하는 함수
 function saveToDos() {
-    localStorage.setItem("todos", JSON.stringify(toDos));  // 할 일 목록을 로컬 스토리지에 JSON 형태로 저장
+    localStorage.setItem("toDos", JSON.stringify(toDos));  // 할 일 목록을 로컬 스토리지에 JSON 형태로 저장
 }
 
 // 할 일 삭제하는 함수
@@ -14,7 +14,7 @@ function deleteToDo(e) {
     const li = e.target.parentElement;
     li.remove();
     // 삭제된 항목을 배열에서도 제거하고 저장
-    toDos = toDos.filter((item) => item.id !== parseInt(li.id));
+    toDos = toDos.filter((item) => item.text !== li.querySelector("span").innerText);
     saveToDos();
 }
 
@@ -22,6 +22,7 @@ function deleteToDo(e) {
 function paintToDo(newTodo) {
     const li = document.createElement("li");
     li.setAttribute("id", newTodo.id);
+    li.setAttribute("draggable", "true")
 
     const checkbox = document.createElement("input");
     checkbox.setAttribute('type', 'checkbox');
@@ -32,10 +33,10 @@ function paintToDo(newTodo) {
     button.innerText = "🧨";
     button.addEventListener("click", deleteToDo);
 
+    span.innerText = newTodo.text;
     li.appendChild(checkbox);
     li.appendChild(span);
     li.appendChild(button);
-    span.innerText = newTodo.text;
     toDoList.appendChild(li);
 
     // 체크박스의 상태가 변경될 때 처리
@@ -65,10 +66,10 @@ function handleToDoSubmit(event) {
 toDoForm.addEventListener("submit", handleToDoSubmit);
 
 // 로컬 스토리지에서 할 일 목록을 가져와 화면에 표시
-const savedToDos = localStorage.getItem("todos");
+const savedToDos = localStorage.getItem("toDos");
 
 if (savedToDos !== null) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
-    toDos.forEach(paintToDo);  // 로컬 스토리지에서 불러온 할 일 목록을 화면에 표시
+    toDos.forEach((item)=>paintToDo(item));  // 로컬 스토리지에서 불러온 할 일 목록을 화면에 표시
 }
