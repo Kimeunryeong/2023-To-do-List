@@ -1,5 +1,5 @@
 const randImage = document.querySelector("#rand-image")
-const images = ["memo2.jpg", "모눈종이.jpg"]
+const images = ["1.jpg", "jaedragon.jpg","godttogi.jpg"]
 
 const selectedImage=images[Math.floor(Math.random() * images.length)]
 

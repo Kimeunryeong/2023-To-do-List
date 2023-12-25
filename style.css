@@ -1,50 +1,64 @@
 body {
     margin: 0;
-    padding: 0;
     background-image: url('모눈종이.jpg');
+    background-repeat: no-repeat;
     height: 100vh;
+    background-size: cover;
     box-sizing: border-box;
-
 }
 
-/* TODOLIST 제목 */
-h1 {
-    text-align: center;
+/* -------------------------------상*/
+.head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0;
+}
+.head h1 {
     font-size: 40px;
     font-weight: 700;
+    margin: 50px 0;
+}
+/* ---------------시계 */
+
+#clock {
+    font-size: 36px;
+    font-weight: 500;
+}
+.container {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background-color: #eee;
 }
 
+/* --------------------------------content */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#todo-form {
+    display: flex;
+    width: 50vw;
+    justify-content: center
+}
 #todo-form>input {
-    /* width: 50vw; */
-    width: 80%;
-    margin: 0 auto;
-    display: block;
-    padding: 15px;
+    width: 50vw;   
 }
-
-/* todo-list(ul)내용 */
 #todo-list {
     margin: 0 auto;
     list-style: none;
     padding: 0;
-    /* width: 40vw; */
-    width: 80%;
+    width: 50vw;
 }
 
-/* li  */
 #todo-list li {
-    /* width: 80%; */
     width: 100%;
     margin: 10px auto;
     position: relative;
     padding: 5px 0;
+    border-bottom: 1px solid lightgray;
 }
-
-/* li 친구들 */
 #todo-list li input[type="checkbox"] {
-    margin: 0 10px;
-    padding: 5px;
-    width: 20px;
     cursor: pointer;
 }
 
@@ -66,43 +80,23 @@ h1 {
     position: absolute;
 }
 
-/* --------------content내용 */
-.content {
-    /* width: 50vw; */
-    width: 80%;
-    margin: 0 auto;
-    padding: 40px;
-}
-
-/* ---------------시계 */
-.clock-container {
-    width: 100%;
-    height: 100px;
+/* --------------------------content2 */
+.contetn2 {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
-
-#clock {
-    font-size: 36px;
-    font-weight: 500;
-}
-
 /* -----------------이미지 */
 .rand-image-container {
     position: relative;
-    /* width:100%; */
-    width: 80%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 50vw;
+    height: 50vh;
+    margin: 10px 0;
 }
 
 .rand-image-container #rand-image {
     width: 100%;
     height: 100%;
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,6 +127,9 @@ h1 {
     font-weight: 800;
     font-size: 20px;
     color: white;
+    color: white;
+    text-align: center; /* 수평 가운데 정렬 추가 */
+    line-height: 1.5; /* 텍스트 세로 간격 조정 */
 }
 
 /* ----------------12-20 드래그 */
